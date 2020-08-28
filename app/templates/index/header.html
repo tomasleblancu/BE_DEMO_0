@@ -1,0 +1,54 @@
+{% load static %}
+
+<!-- Header -->
+<header id="header" data-transparent="true" data-fullwidth="true" class="dark submenu-light">
+    <div class="header-inner">
+        <div class="container">
+            <!--Logo-->
+            <div id="logo">
+                <a href="{% url 'index' %}">
+                    <span class="logo-default">
+                        <img class="img-fluid" src="{% static 'images/logoBravoEnergy.png' %}">
+                    </span>
+                    <span class="logo-dark">
+                        <img class="img-fluid" src="{% static 'images/logoBravoEnergy.png' %}">
+                    </span>
+                </a>
+            </div>
+            <!--End: Logo-->
+            <!--Navigation Resposnive Trigger-->
+            <div id="mainMenu-trigger">
+                <a class="lines-button x"><span class="lines"></span></a>
+            </div>
+            <!--end: Navigation Resposnive Trigger-->
+            <!--Navigation-->
+            <div id="mainMenu">
+                <div class="container">
+                    <nav>
+                        <ul>
+                            <li><a href="{% url 'index' %}">Inicio</a></li>
+                            <li class="dropdown"><a href="#quehacemos" class="scroll-to">Que hacemos</a></li>
+                            <li class="dropdown"><a href="#servicios" class="scroll-to">Servicios</a></li>
+                            <li class="dropdown"><a href="{% url 'servicios' %}">Solicitar Servicio</a></li>
+                            <li class="dropdown"><a href="{% url 'contacto' %}">Contactanos</a></li>
+                            <li><a href="#"><i class="fa fa-2x fa-user"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li>{{pk}}</li>
+                                    {% if request.user.is_anonymous %}
+                                    <li><a href="{% url 'login' %}">Iniciar Sesión</span></a></li>
+                                    <li><a href="{% url 'register' %}">Registrarse</a></li>
+                                    {% else %}
+                                    <li><a href="#">Mi Cuenta</a></li>
+                                    <li><a href="{% url 'logout' %}">Salir</a></li>
+                                    {% endif %}
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!--end: Navigation-->
+        </div>
+    </div>
+</header>
+<!-- end: Header -->
